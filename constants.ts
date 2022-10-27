@@ -35,7 +35,7 @@ export const TYPED_STRINGS = [
   "I design and develop motion",
 ];
 
-export const EMAIL = "ayush.singh.xda@gmail.com";
+export const EMAIL = "matthaydon@gmail.com";
 
 export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/alphaayush/",
