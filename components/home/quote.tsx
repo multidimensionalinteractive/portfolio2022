@@ -45,7 +45,7 @@ const QuoteSection = () => {
         }`}
       >
         I have a <span className="text-strong font-bold">strong</span> obsession
-        for attention to detail.
+        and attention to detail.
       </h1>
     </div>
   );

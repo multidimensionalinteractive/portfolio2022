@@ -45,9 +45,13 @@ const SkillsSection = () => {
       <p className="section-title-sm seq">SKILLS</p>
       <h1 className="section-heading seq mt-2">My Skills</h1>
       <h2 className="text-2xl md:max-w-2xl w-full seq mt-2">
-        I like to take responsibility to craft aesthetic user experience using
-        modern frontend architecture.{" "}
+      I bridge the gap between design and development.
+      I like to craft an aesthetic user interface and UX using modern best practices.
+      <br /><br />
+      Lately I have been studying more about blockchain tech and backend frameworks. Always learning more about Cyber Security, Hyperledger, Solidity, JAVA, Python, GO, & Node.js. etc.   
+      {" "}
       </h2>
+       
     </div>
   );
 

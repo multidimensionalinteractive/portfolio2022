@@ -57,13 +57,13 @@ const AboutSection = () => {
   }, [quoteRef, targetSection]);
 
   const renderQuotes = (): React.ReactNode => (
-    <h1 ref={quoteRef} className="font-medium text-3xl sm:text-4xl md:text-6xl">
+    <h1 ref={quoteRef} className="font-medium text-3xl sm:text-4xl md:text-4xl">
       <span
         className={`about-1 leading-tight ${
           willChange ? "will-change-opacity" : ""
         }`}
       >
-        I am a passionate UI Engineer who bridges the gap between development
+        I am a passionate UX Engineer who bridges the gap between development
         and design.{" "}
       </span>
       <span
@@ -71,8 +71,8 @@ const AboutSection = () => {
           willChange ? "will-change-opacity" : ""
         }`}
       >
-        I take responsibility to craft a good user experience using modern
-        frontend architecture.
+        I craft great user experiences using modern
+        best practices.
       </span>
     </h1>
   );

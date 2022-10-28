@@ -78,7 +78,9 @@ const HeroSection = React.memo(() => {
       <div className="md:mb-4 mb-2"> 
         <div class="wrap-image-outer">
           <div class="wrap-image">
+            <a href={"linkedin.com/in/matthaydon"} target="_blank">
             <img src="./matt-haydon.jpg" alt="Matt Haydon II" />
+            </a>
           </div> 
         </div>
         <h2 className="text-4xl seq">Hello 👋🏻</h2>
