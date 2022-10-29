@@ -12,7 +12,7 @@ const HERO_STYLES = {
   CONTENT: "font-medium flex flex-col pt-32 md:pt-0 select-none",
   SOCIAL_LINK: "link hover:opacity-80 duration-300 md:mr-4 mr-2",
   BG_WRAPPER:
-    "absolute hero-bg right-0 md:bottom-0 bottom-8 -z-1 md:w-2/4 w-full scale-125 sm:scale-100 flex items-end",
+    "absolute hero-bg right-0 md:bottom-0 bottom-8 -z-1 md:w-3/4 w-full scale-125 sm:scale-100 flex items-end",
   TYPED_SPAN: "text-xl sm:text-2xl md:text-4xl seq",
 };
 
