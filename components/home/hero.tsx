@@ -78,7 +78,10 @@ const HeroSection = React.memo(() => {
       <div className="md:mb-4 mb-2"> 
         <div className="wrap-image-outer">
           <div className="wrap-image">
-            <a href={"linkedin.com/in/matthaydon"} target="_blank">
+            <a 
+            href={"linkedin.com/in/matthaydon"} 
+            rel="noreferrer"
+            target="_blank">
             <img src="./matt-haydon.jpg" alt="Matt Haydon II" />
             </a>
           </div> 

@@ -50,7 +50,7 @@ const SkillsSection = () => {
       <br /><br />
       The last few years I have been studying more back end languages to round out my fullstack developer expertise. Every day I am constantly learning about new tech, best practices, languages and frameworks. 
       <br /><br />
-      I aim to stay on top of new developments in technology such as: Cyber Security, AI/ML, "The MetaVerse", Blockchain, Hyperledger, Solidity, JAVA, Python, GO, Deno, Node.js, Rust. etc. etc.   
+      I aim to stay on top of new developments in technology such as: Cyber Security, AI/ML, The MetaVerse, Blockchain, Hyperledger, Solidity, JAVA, Python, GO, Deno, Node.js, Rust. etc. etc.   
       {" "}
       </h2>
        
