@@ -57,7 +57,7 @@ export const PROJECTS: IProject[] = [
     name: "Get Dynamic ",
     image: "/projects/dynamic.jpg",
     blurImage: "/projects/blur/dynamic-blur.jpg",
-    description: "Dynamic is an Enterprise blockchain based EDI platform that automates key data movement between customers and vendors.",
+    description: "Enterprise blockchain based EDI platform.",
     gradient: ["#003052", "#167187"],
     url: "https://getdynamic.app",
     tech: ["css", "javascript", "python"],
