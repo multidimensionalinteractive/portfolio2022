@@ -76,8 +76,8 @@ const HeroSection = React.memo(() => {
   const renderHeroContent = (): React.ReactNode => (
     <div className={HERO_STYLES.CONTENT}> 
       <div className="md:mb-4 mb-2"> 
-        <div class="wrap-image-outer">
-          <div class="wrap-image">
+        <div className="wrap-image-outer">
+          <div className="wrap-image">
             <a href={"linkedin.com/in/matthaydon"} target="_blank">
             <img src="./matt-haydon.jpg" alt="Matt Haydon II" />
             </a>
