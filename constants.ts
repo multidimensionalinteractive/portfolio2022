@@ -199,7 +199,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     title: "AVI CAR CARE <br />UX / UI Designer",
     size: ItemSize.SMALL,
     subtitle:
-      "Lead Design & Development 👨‍💼📈💵💰",
+      "Lead Design & Development 👨‍💼📈",
     image: "",
     slideImage: "/timeline/avicarcare.jpg",
     shouldDrawLine: true,
@@ -210,7 +210,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     title: "AUTODRYER <br/> UX / UI Designer",
     size: ItemSize.SMALL,
     subtitle:
-      "Oversaw Design and development, Served different roles of leadership, project management and delivery. 🥳",
+      "Oversaw Design and development, Served different roles of leadership, project management and delivery.",
     image: "",
     slideImage: "/timeline/autodryer.png",
     shouldDrawLine: true,
