@@ -48,7 +48,9 @@ const SkillsSection = () => {
       I bridge the gap between design and development.
       I like to craft an aesthetic user interface and UX using modern best practices.
       <br /><br />
-      Lately I have been studying more about blockchain tech and backend frameworks. Always learning more about Cyber Security, Hyperledger, Solidity, JAVA, Python, GO, & Node.js. etc.   
+      The last few years I have been studying more back end languages to round out my fullstack developer expertise. Every day I am constantly learning about new tech, best practices, languages and frameworks. 
+      <br /><br />
+      I aim to stay on top of new developments in technology such as: Cyber Security, AI/ML, "The MetaVerse", Blockchain, Hyperledger, Solidity, JAVA, Python, GO, Deno, Node.js, Rust. etc. etc.   
       {" "}
       </h2>
        
