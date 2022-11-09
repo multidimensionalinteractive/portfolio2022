@@ -26,10 +26,15 @@ body {
   @apply bg-gray-900 text-white overflow-x-hidden;
   cursor: none;
 }
+ 
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+
+  @media only screen and (max-width: 600px){
+    div.absolute.hero-bg {bottom: -8rem;}
+  }
 
   @media (min-width: 768px) {
     font-size: 14px;

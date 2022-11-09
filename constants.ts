@@ -145,6 +145,16 @@ export const TIMELINE: Array<TimelineNodeV2> = [
   },
   {
     type: NodeTypes.CHECKPOINT,
+    title: "Zero To Mastery<br/>Certificate of Completion",
+    size: ItemSize.SMALL,
+    subtitle: "This certificate above verifies that Matthew Haydon II successfully completed the course The Complete Web Developer in 2023: Zero to Mastery on 11/03/2022",
+    image: "/timeline/ztm.png",
+    slideImage: "/timeline/ztm-cert.png",
+    shouldDrawLine: true,
+    alignment: Branch.LEFT,
+  },
+  {
+    type: NodeTypes.CHECKPOINT,
     title: "UX Engineer",
     size: ItemSize.SMALL,
     subtitle: "Developing an enterprise grade blockchain 🔗 solution for the Aerospace Industry ✈️",
