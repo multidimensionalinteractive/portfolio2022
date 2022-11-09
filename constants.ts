@@ -155,11 +155,31 @@ export const TIMELINE: Array<TimelineNodeV2> = [
   },
   {
     type: NodeTypes.CHECKPOINT,
+    title: "Google Data Analytics Certificate",
+    size: ItemSize.SMALL,
+    subtitle: "Skills: Data Aggregation, Data Analytics, Data Calculations, Data Cleaning, Data Ethics, Data Visualization, Presentations, Problem Solving, R, Spreadsheets, SQL, Structured Thinking",
+    image: "/timeline/coursera.png",
+    slideImage: "/timeline/google-analytics.png",
+    shouldDrawLine: true,
+    alignment: Branch.LEFT,
+  },
+  {
+    type: NodeTypes.CHECKPOINT,
     title: "UX Engineer",
     size: ItemSize.SMALL,
     subtitle: "Developing an enterprise grade blockchain 🔗 solution for the Aerospace Industry ✈️",
     image: "/timeline/get-dynamic.png",
     slideImage: "/timeline/dynamic.gif",
+    shouldDrawLine: true,
+    alignment: Branch.LEFT,
+  },
+  {
+    type: NodeTypes.CHECKPOINT,
+    title: "Udemy <br/>Certificate of Completion",
+    size: ItemSize.SMALL,
+    subtitle: "This certificate above verifies that Matthew Haydon II successfully completed the course Docker Mastery: with Kubernetes + Swarm from a Docker Captain on 06/03/2022<br />",
+    image: "/timeline/udemy.png",
+    slideImage: "/timeline/docker-mastery.png",
     shouldDrawLine: true,
     alignment: Branch.LEFT,
   },
@@ -272,6 +292,13 @@ export const TIMELINE: Array<TimelineNodeV2> = [
   },
   {
     type: NodeTypes.CONVERGE,
+  },
+  {
+    type: NodeTypes.CHECKPOINT,
+    title: "2018",
+    size: ItemSize.LARGE,
+    shouldDrawLine: true,
+    alignment: Branch.LEFT,
   },
 ];
 
