@@ -44,8 +44,8 @@ const QuoteSection = () => {
           willChange ? "will-change-opacity" : ""
         }`}
       >
-        I have a <span className="text-strong font-bold">strong</span> obsession
-        and an attention to detail.
+        I have a <span className="text-strong font-bold">strong</span> obsession with design
+        and attention to detail.
       </h1>
     </div>
   );
