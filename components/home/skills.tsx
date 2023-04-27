@@ -48,9 +48,15 @@ const SkillsSection = () => {
       I bridge the gap between design and development.
       I like to craft an aesthetic user interface and UX using modern best practices.
       <br /><br />
-      The last few years I have been studying more back end languages to round out my fullstack developer expertise. Every day I am constantly learning about new tech, best practices, languages and frameworks. 
+      I am currently pursuing advanced training in IT, DevOps and Security, I am actively enrolled in AZ104, AZ500, and SEC+ courses. 
       <br /><br />
-      I aim to stay on top of new developments in technology such as: Cyber Security, AI/ML, The MetaVerse, Blockchain, Hyperledger, Solidity, JAVA, Python, GO, Deno, Node.js, SQL, Rust. etc. etc.   
+      As a seasoned IT support professional, Security Engineer, and UX developer, I am well-versed in bridging the gap between software development and design. Leveraging modern best practices, I strive to craft top-notch user experiences that exceed expectations.
+      <br /><br />
+      With a robust background in IT fundamentals, software design, development, and testing, I am eager to contribute my technical, analytical, and programming skills to a challenging role as a security engineer. My in-depth understanding of user experience design also enables me to effectively anticipate and address user needs in the context of IT and security.
+      <br /><br />
+      Over the course of my career, I have participated in more than 20 successful projects, spanning a wide range of fields, including front-end development, UI/UX design, game design, motion graphics, and blockchain technology. In recent years, I have deepened my expertise in DevOps and security, dedicating myself to daily learning and staying abreast of emerging technologies and trends, such as cybersecurity, AI/ML, the Metaverse, and cutting-edge programming languages and frameworks, such as Python and GO.
+      <br /><br />
+      Overall, I am a highly motivated, intellectually curious, and results-driven professional, eager to take on new challenges and make a meaningful impact in the world of technology.
       {" "}
       </h2>
        
