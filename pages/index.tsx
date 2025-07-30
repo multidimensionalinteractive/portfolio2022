@@ -1,89 +1,128 @@
-import { METADATA } from "../constants";
-import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import Head from 'next/head';
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import ToolCard from '../components/ToolCard';
+import ExperienceCard from '../components/ExperienceCard';
+import '../styles/portfolio.scss';
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-import Layout from "@/components/common/layout";
-import Header from "@/components/common/header";
-import ProgressIndicator from "@/components/common/progress-indicator";
-import Cursor from "@/components/common/cursor";
-import HeroSection from "@/components/home/hero";
-import ProjectsSection from "@/components/home/projects";
-import QuoteSection from "@/components/home/quote";
-import SkillsSection from "@/components/home/skills";
-import CollaborationSection from "@/components/home/collaboration";
-import Footer from "@/components/common/footer";
-import TimelineSection from "@/components/home/timeline";
-import Scripts from "@/components/common/scripts";
-import AboutSection from "@/components/home/about";
-
-const DEBOUNCE_TIME = 100;
-
-export const isSmallScreen = (): boolean => document.body.clientWidth < 767;
-export const NO_MOTION_PREFERENCE_QUERY =
-  "(prefers-reduced-motion: no-preference)";
-
-export interface IDesktop {
-  isDesktop: boolean;
+interface Tool {
+  name: string;
+  description: string;
+  useCase: string;
 }
 
-export default function Home() {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.config({ nullTargetWarn: false });
+interface Experience {
+  title: string;
+  description: string;
+  details: string;
+}
 
-  const [isDesktop, setisDesktop] = useState(true);
-
-  let timer: NodeJS.Timeout = null;
-
-  const debouncedDimensionCalculator = () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      const isDesktopResult =
-        typeof window.orientation === "undefined" &&
-        navigator.userAgent.indexOf("IEMobile") === -1;
-
-      window.history.scrollRestoration = "manual";
-
-      setisDesktop(isDesktopResult);
-    }, DEBOUNCE_TIME);
-  };
-
+const Home: React.FC = () => {
   useEffect(() => {
-    debouncedDimensionCalculator();
+    gsap.fromTo(
+      '.hero-section',
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+    );
+    gsap.fromTo(
+      '.tool-card',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, delay: 0.5 }
+    );
+    gsap.fromTo(
+      '.experience-card',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, delay: 1 }
+    );
+  }, []);
 
-    window.addEventListener("resize", debouncedDimensionCalculator);
-    return () =>
-      window.removeEventListener("resize", debouncedDimensionCalculator);
-  }, [timer]);
+  const tools: Tool[] = [
+    {
+      name: 'Qualys VMDR',
+      description: 'Vulnerability management platform for scanning and prioritizing risks.',
+      useCase: 'Used to schedule and analyze scans across Windows, Linux, and AWS environments, ensuring FedRAMP compliance.',
+    },
+    {
+      name: 'Tenable (Nessus)',
+      description: 'Vulnerability scanner for identifying security weaknesses.',
+      useCase: 'Used to validate scan results and prioritize remediation based on CVSS scores.',
+    },
+    {
+      name: 'Microsoft Excel',
+      description: 'Tool for data analysis and reporting.',
+      useCase: 'Used to create POA&M records and track vulnerability remediation timelines.',
+    },
+    {
+      name: 'Wireshark',
+      description: 'Network protocol analyzer for monitoring traffic.',
+      useCase: 'Used to analyze network data for identifying threats and validating vulnerabilities.',
+    },
+    {
+      name: 'Splunk',
+      description: 'Platform for log analysis and security monitoring.',
+      useCase: 'Used for compliance monitoring and analyzing system logs for FedRAMP requirements.',
+    },
+  ];
 
-  const renderBackdrop = (): React.ReactNode => (
-    <div className="fixed top-0 left-0 h-screen w-screen bg-gray-900 -z-1"></div>
-  );
+  const experiences: Experience[] = [
+    {
+      title: 'CASP+ Certification',
+      description: 'CompTIA Advanced Security Practitioner (CASP+), demonstrating expertise in enterprise security architecture, operations, engineering, and governance.',
+      details: 'Certified in 2025, skilled in risk management, compliance frameworks (NIST 800-53, FedRAMP), and secure system design.',
+    },
+    {
+      title: 'Vulnerability Management Experience',
+      description: 'Hands-on experience with vulnerability scanning and remediation processes.',
+      details: 'Proficient in using Qualys VMDR to scan Windows/Linux systems, analyzing CVEs, and collaborating with IT teams for remediation.',
+    },
+    {
+      title: 'Active Directory Management',
+      description: 'Experience managing and securing Active Directory environments.',
+      details: 'Implemented security policies and monitored user access to ensure compliance with organizational standards.',
+    },
+  ];
 
   return (
-    <>
+    <div className="portfolio-container">
       <Head>
-        <title>{METADATA.title}</title>
+        <title>Cybersecurity Portfolio - Junior Vulnerability Management Analyst</title>
+        <meta name="description" content="Portfolio of a CASP+ certified cybersecurity analyst specializing in vulnerability management and FedRAMP compliance." />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Header />
-        <ProgressIndicator />
-        <Cursor isDesktop={isDesktop} />
-        <main className="flex-col flex">
-          {renderBackdrop()}
-          <HeroSection />
-          <AboutSection />
-          <ProjectsSection isDesktop={isDesktop} />
-          <QuoteSection />
-          <SkillsSection />
-          <TimelineSection isDesktop={isDesktop} />
-          <CollaborationSection />
-          <Footer />
-        </main>
-        <Scripts />
-      </Layout>
-    </>
+
+      {/* Hero Section */}
+      <section className="hero-section">
+        <h1>Junior Vulnerability Management Analyst</h1>
+        <p className="subtitle">CASP+ Certified | Specializing in Qualys VMDR, FedRAMP, and NIST 800-53</p>
+        <p>Passionate about securing IT environments through vulnerability management and compliance. Experienced in Windows, Linux, AWS, and Active Directory.</p>
+      </section>
+
+      {/* Tools Section */}
+      <section className="tools-section">
+        <h2>Tools I Use</h2>
+        <div className="tools-grid">
+          {tools.map((tool, index) => (
+            <ToolCard key={index} name={tool.name} description={tool.description} useCase={tool.useCase} />
+          ))}
+        </div>
+      </section>
+
+      {/* Experience & Certifications Section */}
+      <section className="experience-section">
+        <h2>Experience & Certifications</h2>
+        <div className="experience-grid">
+          {experiences.map((exp, index) => (
+            <ExperienceCard key={index} title={exp.title} description={exp.description} details={exp.details} />
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>© 2025 Your Name. Built with Next.js, SCSS, and GSAP.</p>
+      </footer>
+    </div>
   );
-}
+};
+
+export default Home;
