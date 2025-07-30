@@ -1,6 +1,8 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Typed from 'typed.js';
+import VanillaTilt from 'vanilla-tilt';
 import ToolCard from '../components/ToolCard';
 import ExperienceCard from '../components/ExperienceCard';
 import '../styles/portfolio.scss';
@@ -18,7 +20,11 @@ interface Experience {
 }
 
 const Home: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const typedRef = useRef<HTMLSpanElement>(null);
+
   useEffect(() => {
+    // GSAP animations
     gsap.fromTo(
       '.hero-section',
       { opacity: 0, y: 50 },
@@ -34,6 +40,26 @@ const Home: React.FC = () => {
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, delay: 1 }
     );
+
+    // Typed.js for dynamic text
+    if (typedRef.current) {
+      new Typed(typedRef.current, {
+        strings: ['CASP+ Certified', 'Vulnerability Management', 'FedRAMP Compliance'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true,
+      });
+    }
+
+    // Vanilla Tilt for hero section
+    if (heroRef.current) {
+      VanillaTilt.init(heroRef.current, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.5,
+      });
+    }
   }, []);
 
   const tools: Tool[] = [
@@ -83,7 +109,7 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="portfolio-container">
+    <div className="min-h-screen bg-gray-900 text-white">
       <Head>
         <title>Cybersecurity Portfolio - Junior Vulnerability Management Analyst</title>
         <meta name="description" content="Portfolio of a CASP+ certified cybersecurity analyst specializing in vulnerability management and FedRAMP compliance." />
@@ -91,16 +117,20 @@ const Home: React.FC = () => {
       </Head>
 
       {/* Hero Section */}
-      <section className="hero-section">
-        <h1>Junior Vulnerability Management Analyst</h1>
-        <p className="subtitle">CASP+ Certified | Specializing in Qualys VMDR, FedRAMP, and NIST 800-53</p>
-        <p>Passionate about securing IT environments through vulnerability management and compliance. Experienced in Windows, Linux, AWS, and Active Directory.</p>
+      <section ref={heroRef} className="hero-section py-20 text-center bg-gradient-to-r from-blue-900 to-gray-800">
+        <h1 className="text-5xl font-bold mb-4">
+          Junior Vulnerability Management Analyst <span ref={typedRef}></span>
+        </h1>
+        <p className="text-xl mb-6">CASP+ Certified | Specializing in Qualys VMDR, FedRAMP, and NIST 800-53</p>
+        <p className="text-lg max-w-2xl mx-auto">
+          Passionate about securing IT environments through vulnerability management and compliance. Experienced in Windows, Linux, AWS, and Active Directory.
+        </p>
       </section>
 
       {/* Tools Section */}
-      <section className="tools-section">
-        <h2>Tools I Use</h2>
-        <div className="tools-grid">
+      <section className="py-16 px-8">
+        <h2 className="text-3xl font-semibold text-center mb-10">Tools I Use</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {tools.map((tool, index) => (
             <ToolCard key={index} name={tool.name} description={tool.description} useCase={tool.useCase} />
           ))}
@@ -108,9 +138,9 @@ const Home: React.FC = () => {
       </section>
 
       {/* Experience & Certifications Section */}
-      <section className="experience-section">
-        <h2>Experience & Certifications</h2>
-        <div className="experience-grid">
+      <section className="py-16 px-8 bg-gray-800">
+        <h2 className="text-3xl font-semibold text-center mb-10">Experience & Certifications</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <ExperienceCard key={index} title={exp.title} description={exp.description} details={exp.details} />
           ))}
@@ -118,8 +148,8 @@ const Home: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <p>© 2025 Your Name. Built with Next.js, SCSS, and GSAP.</p>
+      <footer className="py-8 text-center bg-gray-900">
+        <p>© 2025 Your Name. Built with Next.js, Tailwind CSS, SCSS, and GSAP.</p>
       </footer>
     </div>
   );
