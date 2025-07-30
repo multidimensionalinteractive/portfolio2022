@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -7,23 +7,23 @@ gsap.registerPlugin(ScrollTrigger);
 const Timeline: React.FC = () => {
   const [timelineSvg, setTimelineSvg] = useState<string>('');
 
-  const animateTimeline = () => {
+  const animateTimeline = useCallback(() => {
     gsap.to('.timeline-item', { opacity: 1, y: 0, duration: 1 });
-  };
+  }, []);
 
-  const initScrollTrigger = () => {
+  const initScrollTrigger = useCallback(() => {
     ScrollTrigger.create({
       trigger: '.timeline',
       start: 'top 80%',
       onEnter: () => animateTimeline(),
     });
-  };
+  }, [animateTimeline]);
 
   useEffect(() => {
     animateTimeline();
     initScrollTrigger();
     setTimelineSvg('example-svg-data');
-  }, [animateTimeline, initScrollTrigger, setTimelineSvg]); // Add missing dependencies
+  }, [animateTimeline, initScrollTrigger, setTimelineSvg]);
 
   return (
     <section className="timeline py-16 px-8 bg-gray-800">
