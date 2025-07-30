@@ -4,17 +4,20 @@ import Button, { ButtonTypes } from "./button";
 
 const Footer = () => {
   const renderSocialIcons = (): React.ReactNode => {
-    return Object.keys(SOCIAL_LINKS).map((el: keyof typeof SOCIAL_LINKS) => (
-      <a
-        href={SOCIAL_LINKS[el]}
-        key={el}
-        className="link hover:opacity-80 duration-300 md:px-2 px-1"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <Image src={`/social/${el}.svg`} alt={el} width={40} height={40} />
-      </a>
-    ));
+    return Object.keys(SOCIAL_LINKS).map((key: string) => {
+      const el = key as keyof typeof SOCIAL_LINKS;
+      return (
+        <a
+          href={SOCIAL_LINKS[el]}
+          key={el}
+          className="link hover:opacity-80 duration-300 md:px-2 px-1"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Image src={`/social/${el}.svg`} alt={el} width={40} height={40} />
+        </a>
+      );
+    });
   };
 
   const renderFooterContent = (): React.ReactNode => (
