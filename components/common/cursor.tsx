@@ -6,6 +6,8 @@ const CURSOR_STYLES = {
   OUTER_CURSOR: 'fixed bg-white/20 w-12 h-12 rounded-full select-none pointer-events-none z-50',
 };
 
+const isSmallScreen = () => window.innerWidth < 768; // Placeholder utility
+
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const outerCursorRef = useRef<HTMLDivElement>(null);
@@ -13,7 +15,7 @@ const Cursor = () => {
   const initCursorAnimation = () => {
     const cursor = cursorRef.current;
     const outerCursor = outerCursorRef.current;
-    if (!cursor || !outerCursor) return;
+    if (!cursor || !outerCursor || isSmallScreen()) return;
 
     document.addEventListener('mousemove', (e) => {
       gsap.to(cursor, { x: e.clientX - 8, y: e.clientY - 8, duration: 0.1, ease: Linear.easeNone });
@@ -31,7 +33,7 @@ const Cursor = () => {
 
   useEffect(() => {
     initCursorAnimation();
-  }, [initCursorAnimation]); // Add missing dependency
+  }, [initCursorAnimation]);
 
   return (
     <>
