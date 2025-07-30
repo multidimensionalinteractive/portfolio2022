@@ -1,82 +1,42 @@
-import styles from "./Cursor.module.scss";
-import { MutableRefObject, useEffect, useRef } from "react";
-import { gsap, Linear } from "gsap";
-import { IDesktop, isSmallScreen } from "pages";
+import { useEffect, useRef } from 'react';
+import { gsap, Linear } from 'gsap';
 
 const CURSOR_STYLES = {
-  CURSOR: "fixed hidden bg-white w-4 h-4 select-none pointer-events-none z-50",
-  FOLLOWER: "fixed hidden h-8 w-8 select-none pointer-events-none z-50",
+  CURSOR: 'fixed hidden bg-white w-4 h-4 select-none pointer-events-none z-50',
+  OUTER_CURSOR: 'fixed bg-white/20 w-12 h-12 rounded-full select-none pointer-events-none z-50',
 };
 
-const Cursor = ({ isDesktop }: IDesktop) => {
-  const cursor: MutableRefObject<HTMLDivElement> = useRef(null);
-  const follower: MutableRefObject<HTMLDivElement> = useRef(null);
-
-  const onHover = () => {
-    gsap.to(cursor.current, {
-      scale: 0.5,
-      duration: 0.3,
-    });
-    gsap.to(follower.current, {
-      scale: 3,
-      duration: 0.3,
-    });
-  };
-
-  const onUnhover = () => {
-    gsap.to(cursor.current, {
-      scale: 1,
-      duration: 0.3,
-    });
-    gsap.to(follower.current, {
-      scale: 1,
-      duration: 0.3,
-    });
-  };
-
-  const moveCircle = (e: MouseEvent) => {
-    gsap.to(cursor.current, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.1,
-      ease: Linear.easeNone,
-    });
-    gsap.to(follower.current, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.3,
-      ease: Linear.easeNone,
-    });
-  };
+const Cursor = () => {
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const outerCursorRef = useRef<HTMLDivElement>(null);
 
   const initCursorAnimation = () => {
-    follower.current.classList.remove("hidden");
-    cursor.current.classList.remove("hidden");
+    const cursor = cursorRef.current;
+    const outerCursor = outerCursorRef.current;
+    if (!cursor || !outerCursor) return;
 
-    document.addEventListener("mousemove", moveCircle);
+    document.addEventListener('mousemove', (e) => {
+      gsap.to(cursor, { x: e.clientX - 8, y: e.clientY - 8, duration: 0.1, ease: Linear.easeNone });
+      gsap.to(outerCursor, { x: e.clientX - 24, y: e.clientY - 24, duration: 0.2, ease: Linear.easeNone });
+    });
 
-    document.querySelectorAll(".link").forEach((el) => {
-      el.addEventListener("mouseenter", onHover);
-      el.addEventListener("mouseleave", onUnhover);
+    document.addEventListener('mouseenter', () => {
+      gsap.to([cursor, outerCursor], { opacity: 1, duration: 0.3 });
+    });
+
+    document.addEventListener('mouseleave', () => {
+      gsap.to([cursor, outerCursor], { opacity: 0, duration: 0.3 });
     });
   };
 
   useEffect(() => {
-    if (isDesktop && !isSmallScreen()) {
-      initCursorAnimation();
-    }
-  }, [cursor, follower, isDesktop]);
+    initCursorAnimation();
+  }, [initCursorAnimation]); // Add missing dependency
 
   return (
     <>
-      <div
-        ref={cursor}
-        className={`${styles.cursor} ${CURSOR_STYLES.CURSOR}`}
-      ></div>
-      <div
-        ref={follower}
-        className={`${styles.cursorFollower} ${CURSOR_STYLES.FOLLOWER}`}
-      ></div>
+      <div ref={cursorRef} className={CURSOR_STYLES.CURSOR} />
+      <div ref={outerCursorRef} className={CURSOR_STYLES.OUTER_CURSOR} />
     </>
   );
 };
