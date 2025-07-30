@@ -1,5 +1,4 @@
 import styles from "./Button.module.scss";
-import PropTypes from "prop-types";
 
 export enum ButtonTypes {
   PRIMARY = "primary",
@@ -7,20 +6,24 @@ export enum ButtonTypes {
   WHITE = "white",
 }
 
-const Button = ({
-  type,
-  onClick = () => {},
-  name,
-  href,
-  classes = "",
-  ...otherProps
-}: {
+interface ButtonProps {
   type: ButtonTypes;
   onClick?: () => void;
   name: string;
   href: string;
   classes?: string;
-  [key: string]: string | (() => void);
+  target?: string;
+  rel?: string;
+  [key: string]: string | (() => void) | undefined; // Allow undefined
+}
+
+const Button: React.FC<ButtonProps> = ({
+  type,
+  onClick,
+  name,
+  href,
+  classes = "",
+  ...otherProps
 }) => {
   const buttonClasses =
     "py-2 px-7 font-medium rounded text-base md:text-xl tracking-wide link duration-300 flex items-center";
@@ -43,14 +46,6 @@ const Button = ({
       ? styles.white
       : styles.outline;
   }
-};
-
-Button.propTypes = {
-  type: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  name: PropTypes.string.isRequired,
-  href: PropTypes.string,
-  classes: PropTypes.string,
 };
 
 export default Button;
