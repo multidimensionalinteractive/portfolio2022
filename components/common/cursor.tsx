@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { gsap, Linear } from 'gsap';
 
 const CURSOR_STYLES = {
@@ -6,16 +6,14 @@ const CURSOR_STYLES = {
   OUTER_CURSOR: 'fixed bg-white/20 w-12 h-12 rounded-full select-none pointer-events-none z-50',
 };
 
-const isSmallScreen = () => window.innerWidth < 768; // Placeholder utility
-
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const outerCursorRef = useRef<HTMLDivElement>(null);
 
-  const initCursorAnimation = () => {
+  const initCursorAnimation = useCallback(() => {
     const cursor = cursorRef.current;
     const outerCursor = outerCursorRef.current;
-    if (!cursor || !outerCursor || isSmallScreen()) return;
+    if (!cursor || !outerCursor) return;
 
     document.addEventListener('mousemove', (e) => {
       gsap.to(cursor, { x: e.clientX - 8, y: e.clientY - 8, duration: 0.1, ease: Linear.easeNone });
@@ -29,7 +27,7 @@ const Cursor = () => {
     document.addEventListener('mouseleave', () => {
       gsap.to([cursor, outerCursor], { opacity: 0, duration: 0.3 });
     });
-  };
+  }, []); // Empty dependency array since it doesn't depend on props/state
 
   useEffect(() => {
     initCursorAnimation();
