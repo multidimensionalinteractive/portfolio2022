@@ -30,17 +30,17 @@ const Footer = () => {
           name="Resume"
           target="_blank"
           rel="noreferrer"
-          href="/Matt_Haydon_Resume.pdf"
+          href="/resume.pdf"
         ></Button>
         <Button
           classes="ml-3"
           type={ButtonTypes.WHITE}
           name="Let's Talk"
-          href={`mailto: ${EMAIL}`}
+          href={`mailto:${EMAIL}`}
         ></Button>
       </div>
       <h2 className="text-center text-sm sm:text-base mt-8">
-        Designed and Developed with ❤️ by Matt Haydon II
+        Designed and Developed with ❤️ by Matt Haydon
       </h2>
     </>
   );
@@ -52,14 +52,14 @@ const Footer = () => {
       className="w-full relative select-none bg-cover flex flex-col items-stretch"
       id={footerRef}
     >
-      <img
+      <Image
         src="/footer-curve.svg"
         alt="Footer"
         className="w-full"
-        loading="lazy"
-        height={290}
-        role="presentation"
         width={1440}
+        height={290}
+        loading="lazy"
+        role="presentation"
       />
       <div className="h-full w-full">
         <div className="section-container flex-col flex h-full justify-end z-10 items-center py-12">
